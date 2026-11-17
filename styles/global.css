@@ -1,0 +1,22 @@
+:root {
+  --color-dark: #101010;
+  --color-white: #FFFFFF;
+  --color-primary: #D87D4A;
+  --color-primary-hover: #FBAF85;
+
+  --font-primary: 'Manrope', sans-serif;
+
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background-color: #FAFAFA;
+}
