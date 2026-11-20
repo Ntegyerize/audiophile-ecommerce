@@ -1,0 +1,411 @@
+
+/* =========================================
+   HOME TOP SECTION
+   Header + Hero shared background
+========================================= */
+
+.home-top {
+  position: relative;
+  min-height: 729px;
+
+  background-color: var(--color-dark);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* =========================================
+   DESKTOP HERO ARTWORK
+   Figma frame: 1440 × 729
+========================================= */
+
+.home-top__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 729px;
+
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-top__artwork {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: none;
+}
+
+/* Desktop composition is the default. */
+.home-top__artwork--desktop {
+  opacity: 1;
+}
+
+/* Shared image properties. */
+.home-top__artwork img {
+  position: absolute;
+  display: block;
+
+  max-width: none;
+
+  object-fit: fill;
+
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+}
+
+
+/* =========================================
+   DESKTOP HERO ARTWORK
+   Figma frame: 1440 × 729
+========================================= */
+
+.home-top__artwork--desktop img {
+  top: 0;
+  left: 42.333333vw;
+
+  width: 49.222222vw;
+  height: 61.527778vw;
+
+  mask-image: url("../../assets/hero-mask-desktop.svg");
+  mask-size: 100vw 729px;
+  mask-position: -42.333333vw 0;
+
+  -webkit-mask-image: url("../../assets/hero-mask-desktop.svg");
+  -webkit-mask-size: 100vw 729px;
+  -webkit-mask-position: -42.333333vw 0;
+}
+
+/* =========================================
+   TABLET ARTWORK ACTIVATION
+   Breakpoint: 1072px
+========================================= */
+
+/* =========================================
+   CENTERED HERO COMPOSITION
+   Breakpoint: 1072px
+========================================= */
+
+@media (max-width: 1072px) {
+
+  /* Switch artwork composition. */
+  .home-top__artwork--desktop {
+    opacity: 0;
+  }
+
+  .home-top__artwork--tablet {
+    opacity: 1;
+  }
+
+  .home-top__artwork--tablet img {
+  /* Center the artwork immediately. */
+  left: calc(50% - 0.5px);
+  top: calc(50% + 78.5px);
+
+  /* Use the actual tablet reference dimensions. */
+  width: 768.215px;
+  height: 960px;
+
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+
+  /* Tablet mask retains its reference composition. */
+  mask-image: url("../../assets/hero-mask-tablet.svg");
+  mask-size: 768px 729px;
+  mask-position: 0.608px 37px;
+
+  -webkit-mask-image: url("../../assets/hero-mask-tablet.svg");
+  -webkit-mask-size: 768px 729px;
+  -webkit-mask-position: 0.608px 37px;
+}
+
+  /* Center hero content at the same breakpoint. */
+  .home-hero__container {
+    width: 100%;
+  }
+
+  .home-hero__content {
+    width: min(379px, calc(100% - 48px));
+    margin-inline: auto;
+
+    padding-top: 102px;
+
+    text-align: center;
+  }
+
+  .home-hero__description {
+    width: min(349px, 100%);
+    margin-inline: auto;
+    margin-bottom: 40px;
+  }
+}
+/* Keep the header and main content above the artwork. */
+
+.site-header,
+.home-top main {
+  position: relative;
+  z-index: 1;
+}
+
+.site-header {
+  height: 97px;
+  background-color: transparent;
+}
+
+
+/* =========================================
+   HERO CONTENT — DESKTOP
+========================================= */
+
+.home-hero {
+  min-height: 632px;
+}
+
+.home-hero__container {
+  width: min(1110px, calc(100% - 48px));
+  height: 100%;
+
+  margin-inline: auto;
+}
+
+.home-hero__content {
+  width: 398px;
+  padding-top: 128px;
+}
+
+/* Overline */
+
+.home-hero__eyebrow {
+  margin: 0 0 24px;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 14px;
+  font-weight: var(--font-regular);
+  line-height: 19px;
+  letter-spacing: 10px;
+
+  text-transform: uppercase;
+}
+
+/* Main heading */
+
+/* Main heading */
+
+.home-hero__title {
+  margin: 0 0 24px;
+
+  color: var(--color-white);
+
+  font-size: clamp(36px, calc(16.916px + 5.089vw), 56px);
+  font-weight: var(--font-bold);
+  line-height: clamp(40px, calc(22.824px + 4.58vw), 58px);
+  letter-spacing: clamp(1.2857px, calc(0.6041px + 0.18176vw), 2px);
+
+  text-transform: uppercase;
+}
+
+.home-hero__title span {
+  display: block;
+}
+
+/* Supporting description */
+
+.home-hero__description {
+  width: 349px;
+  margin: 0 0 40px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 15px;
+  font-weight: var(--font-medium);
+  line-height: 25px;
+}
+
+
+/* =========================================
+   TABLET
+   Figma reference: 768px
+========================================= */
+
+@media (max-width: 1023px) {
+
+  .home-top {
+    min-height: 729px;
+  }
+
+  .site-header {
+    height: 90px;
+  }
+
+  .home-top__background {
+    height: 729px;
+  }
+
+  .site-header::after {
+  width: min(689px, calc(100% - 78px));
+  }
+
+
+
+
+
+  .home-hero {
+    min-height: 639px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   Figma reference: 375px
+========================================= */
+
+@media (max-width: 599px) {
+
+  .home-top {
+    height: 600px;
+    min-height: 600px;
+  }
+
+  .home-top__background {
+    height: 600px;
+  }
+
+  /* Fade out tablet and fade in mobile artwork. */
+.home-top__artwork--tablet {
+  opacity: 0;
+}
+
+.home-top__artwork--mobile {
+  opacity: 1;
+}
+
+/* Only crossfade between tablet and mobile artwork. */
+.home-top__artwork--tablet,
+.home-top__artwork--mobile {
+  transition: opacity 250ms ease-in-out;
+}
+
+/* Mobile composition. */
+.home-top__artwork--mobile img {
+  left: 50%;
+  top: calc(50% + 75.61px);
+
+  width: 154.027vw;
+  height: 192.533vw;
+
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+
+  mask-image: url("../../assets/hero-mask-mobile.svg");
+  mask-size: 100vw 600px;
+  mask-position: 27.147vw -14.609px;
+
+  -webkit-mask-image: url("../../assets/hero-mask-mobile.svg");
+  -webkit-mask-size: 100vw 600px;
+  -webkit-mask-position: 27.147vw -14.609px;
+}
+  .home-hero {
+    min-height: 510px;
+  }
+
+  .home-hero__container {
+    width: min(379px, calc(100% - 48px));
+  }
+
+  .home-hero__content {
+  width: 100%;
+  padding-top: clamp(102px, calc(118px - 2.6667vw), 108px);
+}
+.home-hero__eyebrow {
+    margin-bottom: 16px;
+  }
+
+  .home-hero__description {
+    width: 100%;
+    margin-bottom: 28px;
+  }
+  .site-header::after {
+  width: 100%;
+}
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-top__artwork {
+    transition: none;
+  }
+}
+
+/* =========================================
+   FLUID TABLET → MOBILE ARTWORK
+   Transition range: 768px → 375px
+========================================= */
+
+@media (min-width: 375px) and (max-width: 768px) {
+
+  .home-top__artwork--tablet img,
+  .home-top__artwork--mobile img {
+
+    /* Centre the artwork horizontally. */
+    left: 50%;
+
+    /* Fluid vertical positioning. */
+    top: clamp(
+      -37px,
+      calc(63.31px - 13.06vw),
+      14.29px
+    );
+
+    /* Fluid image dimensions. */
+    width: clamp(
+      578.115px,
+      calc(48.41265vw + 396.406px),
+      768.215px
+    );
+
+    height: clamp(
+      722.641px,
+      calc(60.44808vw + 495.759px),
+      960px
+    );
+
+    /* Centre the image with a small fluid correction. */
+    transform: translateX(
+      calc(-50% + 0.4777px - 0.1273vw)
+    );
+
+  /* Keep both masks aligned with the fluid image geometry. */
+  mask-position:
+    calc(198.36px - 25.7489vw)
+    calc(-63.854px + 13.132vw);
+
+  -webkit-mask-position:
+    calc(198.36px - 25.7489vw)
+    calc(-63.854px + 13.132vw);
+  mask-size: 100vw var(--home-top-fluid-height);
+  -webkit-mask-size: 100vw var(--home-top-fluid-height);
+  }
+  /* Fluid height for the entire hero composition. */
+.home-top {
+  --home-top-fluid-height:
+    clamp(600px, calc(476.9084px + 32.8244vw), 729px);
+
+  height: auto;
+  min-height: var(--home-top-fluid-height);
+}
+
+/* Make the clipping area follow the hero height. */
+.home-top__background {
+  height: var(--home-top-fluid-height);
+}
+
+/* Preserve the header's 90px height and scale the hero section. */
+.home-hero {
+  min-height: calc(var(--home-top-fluid-height) - 90px);
+}
+}

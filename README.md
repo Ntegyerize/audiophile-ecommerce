@@ -29,10 +29,22 @@ The specified visual guidelines cover:
 
 **In progress.**
 
-Initial development includes:
-- Figma design inspection
-- Project structure and CSS architecture
-- Initial responsive header implementation
+Completed milestones:
+- Figma design inspection and documentation of the supplied design system.
+- Initial project structure and modular CSS architecture.
+- Responsive header layout and divider refinements.
+- Homepage hero implementation for desktop, tablet and mobile compositions.
+- Responsive hero art direction based on measured available space.
+- Fluid hero typography, content spacing, artwork scaling and mask alignment.
+
+Still in progress:
+- Mobile navigation interaction.
+- Remaining homepage sections and product browsing layouts.
+- Product detail pages.
+- Shopping cart and checkout functionality.
+- Accessibility and responsive testing across additional viewport sizes.
+
+Development decisions, measurements and lessons learned are recorded in [`docs/PROJECT_LOG.md`](docs/PROJECT_LOG.md). The visual specification is maintained in [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md).
 
 ## Planned Features
 

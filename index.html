@@ -10,62 +10,110 @@
     <link rel="stylesheet" href="./styles/global.css">
     <link rel="stylesheet" href="./styles/components/header.css">
     <link rel="stylesheet" href="./styles/components/buttons.css">
-    <link rel="stylesheet" href="./styles/components/category-card.css">
     <link rel="stylesheet" href="./styles/pages/home.css">
     <title>Audiophile | Home</title>
 </head>
 <body>
-<header class="site-header">
-  <div class="site-header__container">
+<div class="home-top">
 
-    <!-- Mobile menu control -->
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-label="Open navigation menu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <!-- Decorative hero artwork -->
+  <div class="home-top__background" aria-hidden="true">
 
-    <!-- Brand logo -->
-    <a
-      href="index.html"
-      class="site-header__logo"
-      aria-label="Audiophile home"
-    >
-      <img
-        src="assets/audiophile-logo.svg"
-        alt=""
-      >
-    </a>
+  <!-- Desktop artwork -->
+  <div class="home-top__artwork home-top__artwork--desktop">
+    <img src="./assets/hero-desktop.png" alt="">
+  </div>
 
-    <!-- Desktop navigation -->
-    <nav
-      class="site-navigation"
-      aria-label="Main navigation"
-    >
-      <a href="index.html">Home</a>
-      <a href="headphones.html">Headphones</a>
-      <a href="speakers.html">Speakers</a>
-      <a href="earphones.html">Earphones</a>
-    </nav>
+  <!-- Tablet artwork -->
+  <div class="home-top__artwork home-top__artwork--tablet">
+    <img src="./assets/hero-tablet-mobile.png" alt="">
+  </div>
 
-    <!-- Shopping cart -->
-    <a
-      href="cart.html"
-      class="site-header__cart"
-      aria-label="Shopping cart"
-    >
-      <img
-        src="assets/icon-cart.svg"
-        alt=""
-      >
-    </a>
+  <!-- Mobile artwork -->
+  <div class="home-top__artwork home-top__artwork--mobile">
+    <img src="./assets/hero-tablet-mobile.png" alt="">
+  </div>
+
+</div>
+    <!-- Existing semantic header -->
+    <header class="site-header">
+      <div class="site-header__container">
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <a
+          href="index.html"
+          class="site-header__logo"
+          aria-label="Audiophile home"
+        >
+          <img src="assets/audiophile-logo.svg" alt="">
+        </a>
+
+        <nav
+          class="site-navigation"
+          aria-label="Main navigation"
+        >
+          <a href="index.html">Home</a>
+          <a href="headphones.html">Headphones</a>
+          <a href="speakers.html">Speakers</a>
+          <a href="earphones.html">Earphones</a>
+        </nav>
+
+        <a
+          href="cart.html"
+          class="site-header__cart"
+          aria-label="Shopping cart"
+        >
+          <img src="assets/icon-cart.svg" alt="">
+        </a>
+
+      </div>
+    </header>
+
+    <main>
+      <section class="home-hero">
+
+        <div class="home-hero__container">
+
+          <div class="home-hero__content">
+
+            <p class="home-hero__eyebrow">
+              New Product
+            </p>
+
+            <h1 class="home-hero__title">
+              <span>XX99 Mark II</span>
+              <span>Headphones</span>
+            </h1>
+
+            <p class="home-hero__description">
+              Experience natural, lifelike audio and exceptional
+              build quality made for the passionate music enthusiast.
+            </p>
+
+            <a
+              href="./product-xx99-mark-two-headphones.html"
+              class="button button--primary"
+            >
+              See Product
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+    </main>
 
   </div>
-</header>
 
 </body>
 </html>
