@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="./styles/global.css">
     <link rel="stylesheet" href="./styles/components/header.css">
     <link rel="stylesheet" href="./styles/components/buttons.css">
+    <link rel="stylesheet" href="./styles/components/category-cards.css">
+    <link rel="stylesheet" href="./styles/components/featured-zx9.css">
+    <link rel="stylesheet" href="./styles/components/featured-zx7.css">
+    <link rel="stylesheet" href="./styles/components/featured-yx1.css">
     <link rel="stylesheet" href="./styles/pages/home.css">
     <title>Audiophile | Home</title>
 </head>
@@ -111,9 +115,237 @@
         </div>
 
       </section>
-    </main>
+      <!-- =========================================
+     PRODUCT CATEGORIES
+========================================= -->
+
+<section class="home-categories" aria-label="Shop by category">
+
+  <div class="home-categories__container">
+
+    <ul class="category-grid">
+
+      <!-- Headphones -->
+      <li class="category-card category-card--headphones">
+
+        <img
+          class="category-card__image"
+          src="./assets/figma-source/raw-05.png"
+          alt=""
+          width="438"
+          height="570"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <div class="category-card__content">
+
+          <h2 class="category-card__title">
+            Headphones
+          </h2>
+
+          <a
+            href="./headphones.html"
+            class="category-card__link"
+          >
+            Shop
+          </a>
+
+        </div>
+
+      </li>
+
+
+      <!-- Speakers -->
+      <li class="category-card category-card--speakers">
+
+        <img
+          class="category-card__image"
+          src="./assets/figma-source/raw-02.png"
+          alt=""
+          width="228"
+          height="274"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <div class="category-card__content">
+
+          <h2 class="category-card__title">
+            Speakers
+          </h2>
+
+          <a
+            href="./speakers.html"
+            class="category-card__link"
+          >
+            Shop
+          </a>
+
+        </div>
+
+      </li>
+
+
+      <!-- Earphones -->
+      <li class="category-card category-card--earphones">
+
+        <img
+          class="category-card__image"
+          src="./assets/figma-source/raw-07.png"
+          alt=""
+          width="324"
+          height="295"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <div class="category-card__content">
+
+          <h2 class="category-card__title">
+            Earphones
+          </h2>
+
+          <a
+            href="./earphones.html"
+            class="category-card__link"
+          >
+            Shop
+          </a>
+
+        </div>
+
+      </li>
+
+    </ul>
 
   </div>
 
+</section>
+
+<!-- =========================================
+     FEATURED PRODUCT: ZX9 SPEAKER
+========================================= -->
+
+<section
+  class="home-featured home-featured--zx9"
+  aria-labelledby="zx9-title"
+>
+  <div class="home-featured__panel">
+
+    <!-- Decorative concentric circles -->
+    <div class="home-featured__rings" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Product image -->
+    <div class="home-featured__image">
+      <img
+        src="./assets/figma-source/raw-02.png"
+        alt="ZX9 speaker"
+        width="228"
+        height="274"
+        loading="lazy"
+        decoding="async"
+      >
+    </div>
+
+    <!-- Product information -->
+    <div class="home-featured__content">
+
+      <h2 class="home-featured__title" id="zx9-title">
+        <span>ZX9</span>
+        <span>Speaker</span>
+      </h2>
+
+      <p class="home-featured__description">
+        Upgrade to premium speakers that are phenomenally
+        built to deliver truly remarkable sound.
+      </p>
+
+      <a
+        href="./product-zx9-speaker.html"
+        class="home-featured__button"
+      >
+        See Product
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================
+     FEATURED PRODUCT: ZX7 SPEAKER
+========================================= -->
+
+<section
+  class="home-zx7"
+  aria-labelledby="zx7-title"
+>
+  <div class="home-zx7__panel">
+
+    <div class="home-zx7__content">
+
+      <h2 class="home-zx7__title" id="zx7-title">
+      ZX7 Speaker
+      </h2>
+
+      <a
+        href="./product-zx7-speaker.html"
+        class="home-zx7__button"
+      >
+        See Product
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================
+     FEATURED PRODUCT: YX1 EARPHONES
+========================================= -->
+
+<section
+  class="home-yx1"
+  aria-label="YX1 Earphones"
+>
+  <div class="home-yx1__container">
+
+    <!-- Product image -->
+    <div
+      class="home-yx1__image"
+      role="img"
+      aria-label="YX1 wireless earphones"
+    ></div>
+
+    <!-- Product information -->
+    <div class="home-yx1__content">
+
+      <div class="home-yx1__content-inner">
+
+        <h2 class="home-yx1__title">
+          YX1 Earphones
+        </h2>
+
+        <a
+          href="./product-yx1-earphones.html"
+          class="home-yx1__button"
+        >
+          See Product
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+</div>
 </body>
 </html>

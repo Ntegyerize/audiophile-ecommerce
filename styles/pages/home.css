@@ -6,6 +6,7 @@
 
 .home-top {
   position: relative;
+  height: auto;
   min-height: 729px;
 
   background-color: var(--color-dark);
@@ -251,12 +252,12 @@
   width: min(689px, calc(100% - 78px));
   }
 
-
-
-
-
   .home-hero {
     min-height: 639px;
+  }
+  .category-card__title {
+    font-size: 15px;
+    letter-spacing: 1.07px;
   }
 }
 
@@ -334,6 +335,10 @@
   .site-header::after {
   width: 100%;
 }
+  .category-card__title {
+    font-size: 18px;
+    letter-spacing: 1.29px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .home-top__artwork {

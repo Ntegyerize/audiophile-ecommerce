@@ -201,3 +201,283 @@ The divider follows the header content width on desktop and tablet, and spans th
 ### Next milestone
 
 Build the homepage category/product sections while preserving the established design system and responsive composition principles.
+
+---
+
+## Development Entry 03 - Responsive Homepage Product Sections
+
+**Date:** 25 November 2026
+
+**Milestone:** Responsive homepage category cards and featured-product sections implemented and measured against Figma.
+
+### Objective
+
+Continue the homepage implementation after completing the responsive hero.
+
+The objective was to recreate the product category cards and three featured-product sections (ZX9, ZX7 and YX1) across desktop, tablet and mobile layouts.
+
+The implementation continued the established measurement-driven approach: inspect the actual Figma layer dimensions, translate them into CSS geometry, and verify the result in the browser.
+
+### Design references and principles
+
+The supplied Figma designs remained the source of truth for:
+
+- Section and card dimensions.
+- Image dimensions and placement.
+- Text-container positioning.
+- Responsive layout changes.
+- Section spacing.
+- Background-image composition.
+- Border radii and other visual properties.
+
+The design system continued to govern typography, colors and component states.
+
+### Work completed
+
+#### 1. Responsive product category cards
+
+Implemented three category cards:
+
+- Headphones
+- Speakers
+- Earphones
+
+The cards use a three-column grid on desktop and tablet and switch to a single-column layout on mobile.
+
+The implementation uses the supplied product images from `assets/figma-source/`.
+
+The product images have individual dimensions for each category and responsive reference size.
+
+Measured section spacing:
+
+| Reference | Space above category section |
+|---|---:|
+| Desktop | 120px |
+| Tablet | 89px |
+| Mobile | 83px |
+
+The mobile layout uses a single column and retains the reference card dimensions and spacing.
+
+#### 2. ZX9 Speaker feature
+
+Implemented the large orange ZX9 featured-product panel.
+
+Panel dimensions:
+
+| Reference | Width | Height |
+|---|---:|---:|
+| Desktop | 1110px | 560px |
+| Tablet | 689px | 720px |
+| Mobile | 327px | 600px |
+
+The desktop composition uses a speaker image on the left and product content on the right.
+
+Tablet and mobile switch to a centered vertical composition, with the speaker above the product information.
+
+Verified desktop product-image geometry:
+
+- Position: X 117.49px, Y 96px relative to the panel.
+- Dimensions: approximately 410.23 × 493px.
+
+Verified tablet geometry:
+
+- Speaker: approximately 197.21 × 237px, positioned at X 247px, Y 52px.
+- Content: 349 × 303px, positioned at X 171px, Y 353px.
+
+Verified mobile geometry:
+
+- Speaker: 172.25 × 207px, positioned at X 77.48px, Y 55px.
+- Content begins at approximately X 23px, Y 294px.
+
+The desktop and tablet references use three concentric circles with diameters of 472px, 542px and 944px.
+
+The mobile reference also uses three circles, with diameters of 279px, 320px and 558px.
+
+The circles share a common center in each composition. Their sizes and positioning were made responsive using CSS custom properties, `clamp()` and calculated values.
+
+The content typography and section spacing were also made fluid between the supplied reference sizes.
+
+Measured spacing above the ZX9 panel:
+
+| Reference | Gap |
+|---|---:|
+| Desktop | 162px |
+| Tablet | 94px |
+| Mobile | 52px |
+
+#### 3. ZX7 Speaker feature
+
+Implemented the ZX7 featured-product panel using separate exported background assets for desktop, tablet and mobile.
+
+Panel dimensions:
+
+| Reference | Width | Height |
+|---|---:|---:|
+| Desktop | 1110px | 320px |
+| Tablet | 689px | 320px |
+| Mobile | 327px | 320px |
+
+The product content uses a consistent 204 × 118px container in all three references.
+
+Relative content positions:
+
+| Reference | Left | Top |
+|---|---:|---:|
+| Desktop | 95px | 101px |
+| Tablet | 62px | 101px |
+| Mobile | 24px | 101px |
+
+The heading is Manrope Bold, 28px, with 2px letter spacing. It remains on one line.
+
+The See Product button measures 160 × 48px. Its top position is 70px inside the content container, leaving 32px between the heading frame and button frame.
+
+The section uses an 8px border radius.
+
+Measured spacing above the ZX7 panel:
+
+| Reference | Gap |
+|---|---:|
+| Desktop | 48px |
+| Tablet | 32px |
+| Mobile | 24px |
+
+An incorrect desktop background selection on tablet was diagnosed using `getComputedStyle()`. The tablet-specific SVG was then selected and its rendering set to `100% 100%` to preserve the exported composition.
+
+#### 4. YX1 Earphones feature
+
+Implemented the YX1 section using separate image exports for desktop, tablet and mobile.
+
+Desktop layout:
+
+- Outer container: 1110 × 320px.
+- Two cards: 540 × 320px each.
+- Horizontal gap: 30px.
+
+Tablet layout:
+
+- Outer container: 689 × 320px.
+- Two cards: 339 × 320px each.
+- Horizontal gap: 11px.
+
+Mobile layout:
+
+- Outer container: 327 × 424px.
+- Two vertically stacked cards: 327 × 200px each.
+- Vertical gap: 24px.
+
+The image and content cards remain separate elements, allowing their layout and background images to change independently.
+
+The content card uses:
+
+- Background: `#F1F1F1`.
+- Border radius: 8px.
+
+The image card also uses an 8px border radius to maintain consistency.
+
+The content inner frame measures 247 × 118px at all three reference sizes.
+
+Relative content positions:
+
+| Reference | Left | Top |
+|---|---:|---:|
+| Desktop | 95px | 101px |
+| Tablet | 41px | 101px |
+| Mobile | 24px | 41px |
+
+The three exported image assets were verified in the browser. Their intrinsic dimensions match the corresponding card dimensions:
+
+- Desktop: 540 × 320px.
+- Tablet: 339 × 320px.
+- Mobile: 327 × 200px.
+
+The browser's computed background-image property was inspected at all three viewport sizes to confirm that the correct responsive asset was selected.
+
+### Technical decisions
+
+**Separate component stylesheets**
+
+Each major homepage component has its own stylesheet:
+
+- `category-cards.css`
+- `featured-zx9.css`
+- `featured-zx7.css`
+- `featured-yx1.css`
+
+This keeps homepage components easier to inspect and maintain.
+
+**Responsive image art direction**
+
+Separate exported images are used where the Figma design supplies different compositions for desktop, tablet and mobile.
+
+The responsive asset is selected through CSS media queries rather than attempting to force one image crop to fit every layout.
+
+**Coordinate conversion**
+
+Figma positions were converted into parent-relative CSS positions by subtracting the parent frame's X and Y coordinates from the child layer coordinates.
+
+**Fluid responsiveness**
+
+`clamp()`, `calc()` and CSS custom properties were used for properties that needed to interpolate between verified reference measurements.
+
+Fixed dimensions were retained when the design required consistent sizes, such as the ZX7 heading and CTA button.
+
+**Semantic structure**
+
+The sections use semantic HTML elements, headings and links. Decorative imagery is kept separate from content where appropriate.
+
+### Testing and verification
+
+Browser measurements were collected using:
+
+- `getBoundingClientRect()`
+- `getComputedStyle()`
+- `window.innerWidth`
+- `matchMedia()`
+
+The implementation was tested at the main Figma reference viewports:
+
+| Viewport | Reference |
+|---:|---|
+| 1440px | Desktop |
+| 768px | Tablet |
+| 375px | Mobile |
+
+Additional intermediate viewport checks were used to inspect responsive transitions.
+
+Measured geometry was compared with Figma values for section dimensions, card dimensions, image placement, content placement and spacing.
+
+Fractional browser values, such as a mobile width of approximately 327.33px, were recognized as consequences of fractional viewport dimensions rather than layout errors.
+
+### Important debugging discoveries
+
+- A responsive image can be correctly exported but the wrong asset can still be selected by CSS. Inspecting the computed `background-image` reveals the actual loaded asset.
+- `background-size: cover` can enlarge and crop an image when its aspect ratio differs from the container. The intended rendering should be checked against the exported asset dimensions.
+- A CSS media query can be overridden by a later rule in the same stylesheet. Inspecting computed styles helps identify the winning declaration.
+- `border-radius` must be placed in the base component selector when it is intended to apply at every viewport size.
+- `getBoundingClientRect()` reports viewport-relative coordinates. Subtracting the parent element's rectangle gives the child position relative to its parent.
+- The measured gap between two element boxes is different from the visible space between glyphs. Font line-box metrics affect perceived spacing.
+- A text element that must remain on one line needs an explicit `white-space: nowrap` rule when normal wrapping would occur.
+- A visually correct page requires both geometric verification and visual comparison. Matching element coordinates does not automatically guarantee matching image composition.
+
+### Lessons learned
+
+- Inspect the actual Figma layers before deciding on HTML structure or CSS positioning.
+- Convert page coordinates into parent-relative coordinates before implementing component layouts.
+- Keep independently responsive visual assets separate.
+- Use computed browser styles to diagnose which assets and declarations are actually active.
+- Preserve measured dimensions instead of changing correct geometry to compensate for visual differences caused by font rendering or image cropping.
+- Introduce fluid interpolation only where the measured reference values support it.
+- Keep component styles in the stylesheet belonging to that component.
+- Verify the layout at reference sizes and intermediate widths before considering a section complete.
+
+### Outstanding work
+
+- Implement the mobile navigation interaction.
+- Complete the remaining homepage content and footer.
+- Continue with product category browsing and product detail pages.
+- Implement the shopping cart and checkout experience.
+- Review accessibility, keyboard navigation and reduced-motion behavior.
+- Perform additional responsive and cross-browser testing.
+
+### Next milestone
+Continue the remaining homepage content, then begin the product browsing and detail-page implementation.

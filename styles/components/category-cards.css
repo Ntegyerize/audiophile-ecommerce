@@ -1,0 +1,291 @@
+
+/* =========================================
+   HOME CATEGORY CARDS
+========================================= */
+
+.home-categories {
+  padding-top: 120px;
+  background-color: #FAFAFA;
+}
+
+.home-categories__container {
+  width: min(1110px, calc(100% - 78px));
+  margin-inline: auto;
+}
+
+/* Category grid */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: clamp(
+    10px,
+    calc(2.9762vw - 12.857px),
+    30px
+  );
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+/* =========================================
+   INDIVIDUAL CATEGORY CARD
+========================================= */
+
+.category-card {
+  --category-card-height:
+    clamp(226px, calc(9.5238vw + 152.857px), 290px);
+
+  --category-panel-top:
+    clamp(56px, calc(4.3155vw + 22.857px), 85px);
+
+  --category-panel-height:
+    clamp(165px, calc(5.8036vw + 120.429px), 204px);
+
+  --category-content-top:
+    clamp(148px, calc(8.631vw + 81.714px), 206px);
+
+  position: relative;
+  min-width: 0;
+  height: var(--category-card-height);
+
+  text-align: center;
+}
+
+/* Grey card background */
+
+.category-card::before {
+  content: "";
+
+  position: absolute;
+  top: var(--category-panel-top);
+  left: 0;
+
+  width: 100%;
+  height: var(--category-panel-height);
+
+  border-radius: 8px;
+  background-color: #F1F1F1;
+
+  z-index: 0;
+}
+
+
+/* =========================================
+   PRODUCT IMAGE
+========================================= */
+
+.category-card__image {
+  position: absolute;
+  top: var(--category-panel-top);
+  left: 50%;
+
+  display: block;
+
+  width: auto;
+  height: var(--category-image-height);
+
+  transform: translate(-50%, -50%);
+
+  filter:
+  drop-shadow(0 18px 14px rgba(0, 0, 0, 0.24))
+  drop-shadow(0 30px 24px rgba(0, 0, 0, 0.16));
+
+  z-index: 1;
+}
+
+/* Desktop image dimensions */
+
+/* =========================================
+   CATEGORY PRODUCT IMAGES — DESKTOP
+========================================= */
+
+.category-card--headphones {
+  --category-image-width: 122.95px;
+  --category-image-height: 160px;
+}
+
+.category-card--speakers {
+  --category-image-width: 121.49px;
+  --category-image-height: 146px;
+}
+
+.category-card--earphones {
+  --category-image-width: 125px;
+  --category-image-height: 126px;
+}
+
+.category-card__image {
+  position: absolute;
+  top: var(--category-panel-top);
+  left: 50%;
+
+  display: block;
+
+  width: var(--category-image-width);
+  height: var(--category-image-height);
+
+  object-fit: contain;
+
+  transform: translate(-50%, -50%);
+
+  filter: drop-shadow(
+    0 24px 18px rgba(0, 0, 0, 0.16)
+  );
+
+  z-index: 1;
+}
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.category-card__content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  padding-top: var(--category-content-top);
+
+  z-index: 2;
+}
+
+.category-card__title {
+  margin: 0 0 14px;
+
+  color: #000000;
+
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: var(--font-bold);
+  line-height: normal;
+  letter-spacing: 1.29px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   SHOP LINK
+========================================= */
+
+.category-card__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 25px;
+
+  color: rgba(0, 0, 0, 0.5);
+
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: var(--font-bold);
+  line-height: 25px;
+  letter-spacing: 1px;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: color 150ms ease;
+}
+
+/* Orange chevron */
+
+.category-card__link::after {
+  content: "";
+
+  display: block;
+  width: 7px;
+  height: 7px;
+
+  border-top: 2px solid var(--color-primary);
+  border-right: 2px solid var(--color-primary);
+
+  transform: rotate(45deg);
+}
+
+.category-card__link:hover {
+  color: var(--color-primary);
+}
+
+.category-card__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 5px;
+}
+
+
+/* =========================================
+   TABLET
+   Figma reference: 768px
+========================================= */
+
+@media (max-width: 1023px) {
+
+  .home-categories {
+    padding-top: 89px;
+  }
+
+  .category-card--headphones {
+  --category-image-width: 79.92px;
+  --category-image-height: 104px;
+}
+
+.category-card--speakers {
+  --category-image-width: 84.04px;
+  --category-image-height: 101px;
+}
+
+.category-card--earphones {
+  --category-image-width: 103px;
+  --category-image-height: 104px;
+}
+}
+
+
+/* =========================================
+   MOBILE
+   Figma reference: 375px
+========================================= */
+
+@media (max-width: 599.5px) {
+  .home-categories {
+    padding-top: 83px;
+  }
+
+  .home-categories__container {
+    width: calc(100% - 48px);
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .category-card {
+    --category-panel-top: 56px;
+    --category-panel-height: 165px;
+    --category-content-top: 148px;
+
+    height: 236px;
+  }
+
+  .category-card--headphones {
+    --category-image-width: 80px;
+  }
+
+  .category-card--speakers {
+    --category-image-width: 80px;
+  }
+
+  .category-card--earphones {
+    --category-image-width: 96px;
+  }
+}

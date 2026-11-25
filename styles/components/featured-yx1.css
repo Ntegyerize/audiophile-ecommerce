@@ -1,0 +1,277 @@
+
+/* =========================================
+   FEATURED YX1 EARPHONES
+========================================= */
+
+.home-yx1 {
+  padding-top: 48px;
+  background-color: #FAFAFA;
+}
+
+
+/* =========================================
+   YX1 CONTAINER — DESKTOP
+   Figma reference: 1440px
+
+   Dimensions: 1110 × 320px
+========================================= */
+
+.home-yx1__container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+
+  width: min(1110px, calc(100% - 78px));
+
+  margin-inline: auto;
+}
+
+
+/* =========================================
+   IMAGE CARD — DESKTOP
+   Dimensions: 540 × 320px
+========================================= */
+
+
+.home-yx1__image {
+  min-width: 0;
+  height: 320px;
+
+  background-image:
+    url("../../assets/yx1-image-desktop.svg");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+
+/* =========================================
+   CONTENT CARD — DESKTOP
+   Dimensions: 540 × 320px
+
+   Background: #F1F1F1
+   Radius: 8px
+========================================= */
+
+.home-yx1__content {
+  position: relative;
+
+  min-width: 0;
+  height: 320px;
+
+  background-color: #F1F1F1;
+  border-radius: 8px;
+}
+
+
+/* =========================================
+   CONTENT CONTAINER — DESKTOP
+
+   Position: 95px, 101px
+   Dimensions: 247 × 118px
+========================================= */
+
+.home-yx1__content-inner {
+  position: absolute;
+
+  top: 101px;
+
+  left:
+    clamp(41px, calc(-20.714px + 8.0357vw), 95px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 247px;
+  height: 118px;
+
+  gap: 32px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   HEADING
+
+   Frame: 247 × 38px
+========================================= */
+
+.home-yx1__title {
+  width: 247px;
+  height: 38px;
+
+  margin: 0;
+
+  color: #000000;
+
+  font-family: var(--font-primary);
+  font-size: 28px;
+  font-weight: var(--font-bold);
+  line-height: 38px;
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   SEE PRODUCT BUTTON
+
+   Dimensions: 160 × 48px
+========================================= */
+
+.home-yx1__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 160px;
+  height: 48px;
+
+  margin-left: 1.5px;
+
+  border: 1px solid #000000;
+  background-color: transparent;
+  color: #000000;
+
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: var(--font-bold);
+  line-height: 1;
+  letter-spacing: 1px;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.home-yx1__button:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.home-yx1__button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+
+/* =========================================
+   TABLET
+   Figma reference: 768px
+
+   Container: 689 × 320px
+   Cards: 339 × 320px
+   Gap: 11px
+========================================= */
+
+@media (max-width: 1023px) {
+
+  .home-yx1 {
+    padding-top:
+      clamp(24px, calc(16.367px + 2.0356vw), 32px);
+  }
+
+  .home-yx1__container {
+    width: min(689px, calc(100% - 78px));
+
+    gap: 11px;
+  }
+
+  .home-yx1__image {
+    height: 320px;
+
+    background-image:
+      url("../../assets/yx1-image-tablet.svg");
+  }
+
+  .home-yx1__content {
+    height: 320px;
+  }
+
+  .home-yx1__content-inner {
+    left:
+      clamp(24px, calc(7.778px + 4.3257vw), 41px);
+  }
+}
+
+
+/* =========================================
+   DESKTOP FLUID SECTION SPACING
+========================================= */
+
+@media (min-width: 1024px) {
+
+  .home-yx1 {
+    padding-top:
+      clamp(38px, calc(13.714px + 2.381vw), 48px);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   Figma reference: 375px
+
+   Container: 327 × 424px
+   Cards: 327 × 200px
+   Gap: 24px
+========================================= */
+
+@media (max-width: 664.5px) {
+
+  .home-yx1 {
+    padding-top:
+      clamp(24px, calc(16.367px + 2.0356vw), 30px);
+  }
+
+  .home-yx1__container {
+    width: calc(100% - 48px);
+
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .home-yx1__image {
+    width: 100%;
+    height: 200px;
+
+    background-image:
+      url("../../assets/yx1-image-mobile.svg");
+  }
+
+  .home-yx1__content {
+    width: 100%;
+    height: 200px;
+
+    border-radius: 8px;
+  }
+
+  .home-yx1__content-inner {
+    top: 41px;
+    left: 24px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .home-yx1__button {
+    transition: none;
+  }
+}
