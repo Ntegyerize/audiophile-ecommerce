@@ -481,3 +481,197 @@ Fractional browser values, such as a mobile width of approximately 327.33px, wer
 
 ### Next milestone
 Continue the remaining homepage content, then begin the product browsing and detail-page implementation.
+
+
+---
+
+## Development Entry 04 – Responsive Best Audio Gear and Footer
+
+**Date:** 27 November 2026
+
+**Milestone:** Responsive homepage content and footer implementation completed.
+
+### Objective
+
+Complete the remaining homepage composition by implementing the Best Audio Gear section and responsive footer.
+
+The implementation continued the measurement-driven approach established in previous milestones, using Figma as the source of truth for layout, dimensions, typography and composition.
+
+### Work completed
+
+#### 1. Best Audio Gear section
+
+Implemented the final informational section of the homepage.
+
+The section includes:
+- A heading with the word "best" highlighted using the primary brand color.
+- Supporting descriptive content.
+- Separate desktop, tablet and mobile image assets.
+
+The responsive layout uses a two-column composition on desktop and a vertically arranged composition on tablet and mobile.
+
+The section spacing above the content was measured from the YX1 section:
+
+| Reference | Spacing above Best Audio Gear |
+|---|---:|
+| Desktop | 200px |
+| Tablet | 96px |
+| Mobile | 120px |
+
+The section uses fluid grid dimensions where the composition needs to adapt between reference widths, while retaining the supplied Figma dimensions at the reference viewports.
+
+#### 2. Responsive footer
+
+Implemented a semantic footer with:
+- Audiophile logo.
+- Footer navigation.
+- Brand description.
+- Copyright information.
+- Facebook, Twitter and Instagram links.
+- Decorative orange accent bar.
+
+The footer uses a dedicated `footer.css` component stylesheet.
+
+The same HTML structure is rearranged using CSS Flexbox and responsive media queries.
+
+Verified footer dimensions:
+
+| Reference | Footer width | Footer height |
+|---|---:|---:|
+| Desktop | 1440px | 365px |
+| Tablet | 768px | 400px |
+| Mobile | 375px | 654px |
+
+**Desktop layout**
+
+- Content container: 1110px wide.
+- Horizontal layout for logo and navigation.
+- Description frame: 540 × 100px.
+- Social links: 104 × 24px.
+- Footer content aligned to the 165px desktop page margin.
+
+**Tablet layout**
+
+- Content container: 689px wide.
+- Logo positioned above navigation.
+- Description frame: 689 × 75px.
+- Copyright and social links share the bottom row.
+- Navigation letter spacing refined to 1.85px, producing a measured width of 428.875px against the 429px Figma target.
+
+**Mobile layout**
+
+- Content container: approximately 327px wide.
+- Centered logo and accent bar.
+- Vertically stacked navigation links.
+- Description frame: 327 × 150px.
+- Copyright frame: 258 × 25px.
+- Social links: 104 × 24px.
+
+The social links use 24px icons with 16px gaps.
+
+#### 3. Section spacing and footer positioning
+
+The distance between the Best Audio Gear section and footer was verified against the Figma page coordinates.
+
+| Reference | Best Audio Gear to footer |
+|---|---:|
+| Desktop | 200px |
+| Tablet | 96px |
+| Mobile | 120px |
+
+These values are maintained as layout-specific spacing rather than forced into one fluid interpolation.
+
+#### 4. Interactive states
+
+Added brand-colour hover styling to the footer navigation and social links, with a 150ms transition.
+
+The header navigation also uses the Audiophile orange accent for hover and keyboard focus states.
+
+The footer logo uses the existing `audiophile-logo.svg` asset. Its natural dimensions were verified in the browser at 143 × 25px.
+
+### Responsive debugging: 360px viewport
+
+A narrow mobile test revealed that the `.home-top` wrapper was restricting the homepage to 600px.
+
+The underlying issue was a gap in the fluid artwork media query:
+
+- Mobile layout applied at widths up to 599px.
+- Fluid tablet-to-mobile layout started at 375px.
+- Therefore, widths from 320px to 374px did not receive the fluid wrapper-height behavior.
+
+The fluid media-query range was extended to include narrower mobile widths.
+
+After the adjustment, browser measurements at 360px confirmed:
+
+| Element | Document Y |
+|---|---:|
+| Home wrapper height | 3773px |
+| Categories | 600px |
+| Best Audio Gear | 2835px |
+| Footer | 3773px |
+
+The spacing between Best Audio Gear content and the footer remained 120px.
+
+This demonstrated the importance of testing intermediate and narrow widths, rather than validating only the three primary Figma reference sizes.
+
+### Testing and verification
+
+The footer geometry was measured using `getBoundingClientRect()` and compared with the supplied Figma positions.
+
+Reference viewports:
+
+- Desktop: 1440px.
+- Tablet: 768px.
+- Mobile: 375px.
+
+Additional narrow-screen testing was performed at 360px.
+
+The implementation was checked for:
+- Correct footer dimensions.
+- Logo and social icon positioning.
+- Navigation dimensions.
+- Description and copyright placement.
+- Section spacing.
+- Document flow and footer positioning.
+- Responsive wrapper height.
+
+### Technical decisions
+
+**Component isolation**
+
+The Best Audio Gear and footer styles are maintained in separate component stylesheets.
+
+**Normal document flow**
+
+Primary footer content uses normal document flow. Absolute positioning is reserved for elements such as the desktop social-links group, where the Figma composition requires independent placement.
+
+**Fluid versus breakpoint-based spacing**
+
+Fluid values are used where dimensions should adapt gradually. Breakpoint-specific values are retained when the Figma design intentionally changes its composition or spacing.
+
+**Responsive wrapper behavior**
+
+The hero artwork maintains its own clipping region instead of relying on the entire homepage wrapper to clip overflowing content.
+
+### Lessons learned
+
+- A footer can match its internal Figma geometry and still be incorrectly positioned relative to the preceding section.
+- `getBoundingClientRect()` reports viewport-relative coordinates; adding `window.scrollY` gives document-relative vertical coordinates.
+- Responsive media queries must cover the full intended viewport range. A small gap between ranges can produce major layout failures.
+- A wrapper around the entire homepage should not have a fixed mobile height when it contains all homepage sections.
+- Fluid CSS should preserve reference measurements while adapting to intermediate widths.
+- Hover and focus states should provide consistent interaction feedback across navigation and social links.
+- Browser geometry checks are useful for identifying layout problems that are difficult to diagnose visually.
+
+### Outstanding work
+
+- Implement the mobile navigation interaction.
+- Build product category browsing pages.
+- Build product detail pages.
+- Implement shopping cart and checkout functionality.
+- Complete accessibility and keyboard-navigation review.
+- Perform additional cross-browser and responsive visual testing.
+
+### Next milestone
+
+Begin implementing the product browsing experience, starting with the category pages and reusable product listing components.

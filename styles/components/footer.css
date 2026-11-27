@@ -1,0 +1,314 @@
+
+/* ========================================
+   FOOTER — BASE / DESKTOP
+======================================== */
+
+.footer {
+  position: relative;
+  width: 100%;
+  background-color: #101010;
+  color: #ffffff;
+}
+
+.footer__container {
+  position: relative;
+  width: min(1110px, calc(100% - 78px));
+  margin-inline: auto;
+  padding-block: 75px 48px;
+}
+
+/* Orange accent */
+
+.footer__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 101px;
+  height: 4px;
+  background-color: #D87D4A;
+}
+
+/* Logo and navigation */
+
+.footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 25px;
+}
+
+.footer__logo {
+  display: block;
+  flex: none;
+  width: 143px;
+  height: 25px;
+}
+
+.footer__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer__nav a {
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 1.85px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 150ms ease;
+}
+
+.footer__nav a:hover {
+  color: #D87D4A;
+}
+
+/* Description */
+
+.footer__description {
+  width: min(540px, calc(100% - 453px));
+  max-width: 100%;
+  margin: 36px 0 0;
+
+  color: #ffffff;
+  opacity: 0.5;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+/* Copyright */
+
+.footer__bottom {
+  margin-top: 56px;
+}
+
+.footer__copyright {
+  width: 540px;
+  margin: 0;
+
+  color: #ffffff;
+  opacity: 0.5;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 25px;
+}
+
+
+/* Social links */
+
+.footer__social-links {
+  position: absolute;
+  top: 205px;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 104px;
+  height: 24px;
+}
+
+.footer__social-link {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+
+  color: #FFFFFF;
+  transition: color 150ms ease;
+}
+
+/* Preserve the existing image elements but use their SVGs as masks */
+
+.footer__social-link img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+}
+
+/* Render the icons using the SVG mask */
+
+.footer__social-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-color: currentColor;
+  transition: background-color 150ms ease;
+}
+
+/* Facebook */
+.footer__social-link:nth-child(1)::before {
+  -webkit-mask: url("../../assets/icon-facebook.svg") center / contain no-repeat;
+  mask: url("../../assets/icon-facebook.svg") center / contain no-repeat;
+}
+
+/* Twitter */
+.footer__social-link:nth-child(2)::before {
+  -webkit-mask: url("../../assets/icon-twitter.svg") center / contain no-repeat;
+  mask: url("../../assets/icon-twitter.svg") center / contain no-repeat;
+}
+
+/* Instagram */
+.footer__social-link:nth-child(3)::before {
+  -webkit-mask: url("../../assets/icon-instagram.svg") center / contain no-repeat;
+  mask: url("../../assets/icon-instagram.svg") center / contain no-repeat;
+}
+
+/* Hover and keyboard interaction */
+
+.footer__social-link:hover,
+.footer__social-link:focus-visible {
+  color: #D87D4A;
+}
+
+
+.footer__nav a:focus-visible,
+.footer__social-link:focus-visible,
+.footer__logo:focus-visible {
+  outline: 2px solid #FBAF85;
+  outline-offset: 4px;
+}
+
+
+/* ========================================
+   FOOTER — TABLET
+======================================== */
+
+@media (max-width: 1023.5px) {
+
+  .footer__container {
+    width: min(689px, calc(100% - 78px));
+    padding-block: 60px 46px;
+  }
+
+  /* Logo above navigation */
+
+  .footer__top {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 32px;
+    min-height: unset;
+  }
+
+  /* Description */
+
+  .footer__description {
+    width: 100%;
+    height: 75px;
+    margin-top: 32px;
+  }
+
+  /* Copyright and social links share a row */
+
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 80px;
+  }
+
+  .footer__copyright {
+    width: auto;
+  }
+
+  /* Social links return to normal document flow */
+
+  .footer__social-links {
+    position: static;
+    flex: none;
+  }
+
+}
+
+/* ========================================
+   FOOTER — MOBILE
+======================================== */
+
+@media (max-width: 599.5px) {
+
+  .footer__container {
+    width: calc(100% - 48px);
+    padding-block: 52px 38px;
+  }
+
+  /* Center the orange accent */
+
+  .footer__accent {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Center logo and stack navigation */
+
+  .footer__top {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 48px;
+  }
+
+  .footer__nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .footer__nav a {
+    text-align: center;
+  }
+
+  /* Description */
+
+  .footer__description {
+    width: 100%;
+    height: 150px;
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  /* Copyright and social links */
+
+  .footer__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    margin-top: 48px;
+  }
+
+  .footer__copyright {
+    width: 258px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .footer__social-links {
+    position: static;
+    align-self: center;
+  }
+
+}

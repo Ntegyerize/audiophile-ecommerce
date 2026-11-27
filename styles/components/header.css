@@ -72,6 +72,15 @@
   text-decoration: none;
 }
 
+.site-navigation a {
+  transition: color 150ms ease;
+}
+
+.site-navigation a:hover,
+.site-navigation a:focus-visible {
+  color: #D87D4A;
+}
+
 /* Shopping cart */
 .site-header__cart {
   position: absolute;

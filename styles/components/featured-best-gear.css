@@ -1,0 +1,244 @@
+
+/* =========================================
+   BEST AUDIO GEAR SECTION
+========================================= */
+
+.home-best-gear {
+  padding-top: 200px;
+  background-color: #FAFAFA;
+}
+
+
+/* =========================================
+   OUTER CONTAINER — DESKTOP
+   Figma: 1110 × 588px
+========================================= */
+
+.home-best-gear__container {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 445fr)
+    minmax(0, 540fr);
+
+  column-gap:
+    clamp(32px, calc(100vw - 1063px), 125px);
+
+  align-items: center;
+
+  width: min(1110px, calc(100% - 78px));
+  min-height: 588px;
+
+  margin-inline: auto;
+}
+
+
+/* =========================================
+   TEXT CONTENT — DESKTOP
+   Position relative to section: 0, 147
+   Dimensions: 445 × 295px
+========================================= */
+
+.home-best-gear__content {
+  grid-column: 1;
+  grid-row: 1;
+
+  width: 100%;
+  max-width: 445px;
+
+  align-self: center;
+}
+
+.home-best-gear__title {
+  width: 100%;
+  min-height: 88px;
+  height: auto;
+
+  margin: 0 0 32px;
+
+  color: #000000;
+
+  font-family: var(--font-primary);
+  font-size: 40px;
+  font-weight: var(--font-bold);
+  line-height: 44px;
+  letter-spacing: 1.43px;
+
+  text-transform: uppercase;
+}
+
+.home-best-gear__title span {
+  color: var(--color-primary);
+}
+
+.home-best-gear__description {
+  width: 100%;
+  min-height: 175px;
+  height: auto;
+
+  margin: 0;
+
+  color: rgba(0, 0, 0, 0.5);
+
+  font-family: var(--font-primary);
+  font-size: 15px;
+  font-weight: var(--font-medium);
+  line-height: 25px;
+  letter-spacing: 0;
+}
+
+
+/* =========================================
+   IMAGE — DESKTOP
+   Dimensions: 540 × 588px
+========================================= */
+
+.home-best-gear__picture {
+  display: block;
+
+  grid-column: 2;
+  grid-row: 1;
+
+  width: 100%;
+  max-width: 540px;
+
+  aspect-ratio: 540 / 588;
+
+  overflow: hidden;
+}
+
+
+.home-best-gear__picture img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 8px;
+}
+
+.home-best-gear {
+  padding-bottom: 200px;
+}
+
+
+/* =========================================
+   TABLET
+   Figma: 689 × 633px
+========================================= */
+
+@media (max-width: 1023.5px) {
+
+  .home-best-gear {
+    padding-top: 96px;
+  }
+
+  .home-best-gear__container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    width: min(689px, calc(100% - 78px));
+    height: 633px;
+
+    gap: 63px;
+  }
+
+  /* Image first */
+
+  .home-best-gear__picture {
+  order: -1;
+
+  flex: none;
+
+  width: 100%;
+  height: 300px;
+}
+
+  /* Text below image */
+
+  .home-best-gear__content {
+    flex: none;
+
+    width: min(573px, 100%);
+    height: 270px;
+
+    align-self: center;
+  }
+
+  .home-best-gear__title {
+    width: 100%;
+    height: 88px;
+    margin-bottom: 32px;
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: 1.43px;
+  }
+
+  .home-best-gear__description {
+  width: 100%;
+  height: 150px;
+}
+.home-best-gear__content {
+  text-align: center;
+}
+.home-best-gear {
+    padding-bottom: 96px;
+}
+}
+
+
+/* =========================================
+   MOBILE
+   Figma: 327 × 698px
+========================================= */
+
+@media (max-width: 599.5px) {
+
+  .home-best-gear {
+    padding-top: 120px;
+  }
+
+  .home-best-gear__container {
+    width: calc(100% - 48px);
+    height: 698px;
+
+    gap: 40px;
+  }
+
+  .home-best-gear__picture {
+    width: 100%;
+    height: 300px;
+  }
+
+  .home-best-gear__content {
+    width: 100%;
+    height: 358px;
+  }
+
+  .home-best-gear__title {
+    width: 100%;
+    height: 76px;
+
+    margin-bottom: 32px;
+
+    font-size: 28px;
+    line-height: 38px;
+    letter-spacing: 1px;
+  }
+
+  .home-best-gear__description {
+  width: 100%;
+  height: 250px;
+
+  font-size: 15px;
+  line-height: 25px;
+}
+  .home-best-gear {
+    padding-bottom: 120px;
+  }
+}
